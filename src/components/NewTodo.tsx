@@ -1,4 +1,3 @@
-import { PromiseProvider } from 'mongoose';
 import React, { useRef } from 'react';
 
 const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
@@ -20,6 +19,7 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
     <form onSubmit={submitHandler}>
       <label htmlFor="text">Todo text</label>
       <input type="text" id="text" ref={todoTextInputRef} />
+      <button type="submit">Submit</button>
     </form>
   );
 };
