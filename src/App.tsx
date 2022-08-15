@@ -7,6 +7,12 @@ import NewTodo from './components/NewTodo';
 function App() {
   const [todos, setTudos] = useState<Todo[]>([]);
 
+  const removeTodoHandler = (todoId: string) => {
+    setTudos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== todoId);
+    });
+  };
+
   const addTodoHandler = (todoText: string) => {
     const newTudo = new Todo(todoText);
 
@@ -19,7 +25,7 @@ function App() {
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onRemoveTodo={removeTodoHandler} />
     </div>
   );
 }
